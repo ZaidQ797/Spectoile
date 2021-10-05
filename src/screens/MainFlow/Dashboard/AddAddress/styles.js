@@ -1,0 +1,145 @@
+import {StyleSheet, Platform} from 'react-native';
+import {colors, family, WP, HP, size} from '../../../../utilities';
+import {hasNotch} from 'react-native-device-info';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
+  body: {
+    flex: 10,
+    backgroundColor: colors.white,
+  },
+  footerText: {
+    fontFamily: family.Montserrat_Regular,
+    fontSize: 14,
+    color: '#fff',
+  },
+  mapView: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  mapContainer: {
+    flexDirection: 'row',
+    width: WP(90),
+    borderRadius: 5,
+    shadowOffset: {width: 10, height: 5},
+    shadowColor: 'black',
+    shadowOpacity: 0.1,
+    elevation: 2,
+    backgroundColor: colors.white,
+    paddingVertical: 15,
+  },
+  searchbar: {
+    width: WP(90),
+    height: HP(7),
+    borderRadius: 5,
+    backgroundColor: colors.white,
+    shadowOffset: {width: 10, height: 5},
+    shadowColor: 'black',
+    shadowOpacity: 0.1,
+    elevation: 2,
+    position: 'absolute',
+    left: WP(5),
+    right: WP(5),
+    top: HP(8),
+    flexDirection: 'row',
+    paddingHorizontal: 15,
+    alignItems: 'center',
+    zIndex: 1,
+  },
+  locateme: {
+    width: WP(30),
+    height: 40,
+    borderRadius: 5,
+    backgroundColor: '#fff',
+    position: 'absolute',
+    right: 15,
+    bottom: HP(12),
+    zIndex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  confirm: {
+    width: WP(60),
+    height: 40,
+    borderRadius: 5,
+    backgroundColor: colors.p1,
+    position: 'absolute',
+    left: 15,
+    bottom: HP(12),
+    zIndex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  backButton: {
+    backgroundColor: 'white',
+    width: 30,
+    height: 30,
+    zIndex: 100,
+    borderRadius: 50,
+    justifyContent: 'center',
+    position: 'absolute',
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.black,
+        shadowOffset: {width: 2, height: 1},
+        shadowOpacity: 0.2,
+      },
+      android: {
+        elevation: 1,
+      },
+    }),
+  },
+  bottomContainer: {
+    flex: 0.9,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
+  },
+  address: {
+    fontSize: size.tiny,
+    textAlign: 'center',
+    marginRight: 10,
+    paddingBottom: Platform.OS === 'ios' ? 10 : 0,
+    fontFamily: family.Montserrat_Regular,
+  },
+  locateMeBtn: {
+    fontFamily: family.Montserrat_Bold,
+    paddingLeft: 3,
+  },
+  confirmText: {
+    fontFamily: family.Montserrat_Bold,
+    paddingLeft: 3,
+    color: colors.white,
+  },
+  topInputContainer: {
+    flexDirection: 'row',
+    marginTop: HP('3'),
+    marginHorizontal: WP('5'),
+    backgroundColor: 'transparent',
+    //  height: 50,
+    position: 'absolute',
+    zIndex: 10,
+    top:
+      Platform.OS === 'android' ? WP('10') : hasNotch() ? WP('13') : WP('10'),
+    flex: 1,
+  },
+  backButtonCotainer: {
+    flex: 0.1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 50,
+  },
+  googleAutoInputOuterCotainer: {
+    flex: 0.9,
+    justifyContent: 'center',
+  },
+});
+
+export default styles;
